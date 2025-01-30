@@ -43,6 +43,7 @@ mod transaction_manager;
 pub mod transaction_orchestrator;
 mod transaction_outputs;
 // MEV
+pub mod override_cache;
 mod tx_handler;
 pub mod validator_tx_finalizer;
 pub mod verify_indexes;

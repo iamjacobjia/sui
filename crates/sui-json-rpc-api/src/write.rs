@@ -64,4 +64,12 @@ pub trait WriteApi {
         &self,
         tx_bytes: Base64,
     ) -> RpcResult<DryRunTransactionBlockResponse>;
+
+    // MEV
+    #[method(name = "dryRunOverride")]
+    async fn dry_run_override(
+        &self,
+        tx_bytes: Base64,
+        override_objects: Base64,
+    ) -> RpcResult<DryRunTransactionBlockResponse>;
 }

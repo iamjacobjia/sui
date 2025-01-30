@@ -82,6 +82,18 @@ impl WriteApiServer for WriteApi {
             .await
             .map_err(crate::errors::client_error_to_error_object)
     }
+
+    // MEV
+    async fn dry_run_override(
+        &self,
+        tx_bytes: Base64,
+        override_objects: Base64,
+    ) -> RpcResult<DryRunTransactionBlockResponse> {
+        self.fullnode
+            .dry_run_override(tx_bytes, override_objects)
+            .await
+            .map_err(crate::errors::client_error_to_error_object)
+    }
 }
 
 impl SuiRpcModule for WriteApi {
